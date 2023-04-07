@@ -14,7 +14,8 @@ install.packages("quarto")
 
 2.  Activate this template from the terminal. In Rstudio: open terminal the terminal & type:
 
-```{quarto use template MarcellGranat/TDK}
+```
+quarto use template MarcellGranat/TDK
 ```
 
 3.  Open a new .qmd file (file \> new file \> Quarto Document)
