@@ -12,10 +12,10 @@ This template enables you to use the simple markdown syntax. We prepared a minim
 install.packages("quarto")
 ```
 
-2.  Activate this template from the terminal. In Rstudio: open terminal the terminal & type:
+2.  Activate this template from the terminal. In Rstudio: open the terminal & type:
 
 ```
-quarto use template MarcellGranat/TDK
+quarto install extension MarcellGranat/TDK
 ```
 
 3.  Open a new .qmd file (file \> new file \> Quarto Document)
