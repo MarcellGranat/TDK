@@ -1,0 +1,68 @@
+title: TDK template
+author: Marcell Granát and Balázs Csillag
+version: 0.1.0
+contributes:
+  formats:
+    common:
+      # define below YAML configuration common to all formats
+      knitr:
+        opts_chunk:
+          echo: false
+    pdf:
+      # define default configuration for the pdf version of your format
+      documentclass: article
+      colorlinks: true
+      urlcolor: mnb
+      fig-width: 6.5
+      fig-height: 4.5
+      # This format use a bst file with natbib
+      biblio-style: te
+      reference-section-title: Reference
+      number-sections: true
+      # Set this below (`biblio-config: false`) if your cls already load a bst file
+      # biblio-config: false
+      # Content to add in header that your format is using
+      header-includes: |
+        \usepackage{orcidlink}
+        \definecolor{mnb}{RGB}{70, 186, 187}
+        \renewcommand{\baselinestretch}{1.5} 
+        \usepackage{booktabs,microtype,siunitx}
+        \usepackage{rotating}
+        \usepackage{caption}
+        \usepackage{graphicx}
+        \usepackage{amsmath}
+        \usepackage{longtable}
+        \usepackage{makecell}
+        \usepackage{array}
+        \usepackage{multirow}
+        \usepackage{mathptmx}
+        \usepackage[strict]{changepage}
+        \usepackage{framed}
+        \usepackage{float}
+        \usepackage{geometry}
+        \usepackage{biblatex}
+         \geometry{
+         a4paper,
+         left=25mm,
+         top=25mm,
+         }
+        
+        \newcommand\MyBox[2]{
+          \fbox{\lower0.75cm
+            \vbox to 1.7cm{\vfil
+              \hbox to 1.7cm{\hfil\parbox{1.4cm}{#1\\#2}\hfil}
+              \vfil}%
+          }%
+        }
+        \raggedbottom
+        \addbibresource{$bibliography$}
+        \usepackage{fontspec}
+        \setmainfont[SizeFeatures={Size=12}]{Times New Roman}
+        \setlength\parindent{24pt}
+        \usepackage{indentfirst}
+      template-partials:
+        # Add here the partials your format is using
+        - "/partials/before-body.tex"
+        - "partials/title.tex"
+      format-resources:
+        # Add here the resources required for the PDF rendering

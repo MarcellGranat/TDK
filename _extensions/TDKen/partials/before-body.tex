@@ -1,0 +1,162 @@
+
+\begin{frontmatter}
+\title{$title$$if(subtitle)$ \\\large{$subtitle$} $endif$}
+$for(by-author)$\author[$for(by-author.affiliations)$$it.number$$sep$,$endfor$]{$by-author.name.literal$%
+$if(by-author.attributes.corresponding)$\corref{cor1}$endif$%
+$if(by-author.note.text)$\fnref{fn$by-author.note.number$}$endif$}
+$if(by-author.email)$ \ead{$by-author.email$} $endif$
+$endfor$
+$for(by-affiliation)$
+\affiliation[$it.number$]{organization={$it.name$$if(it.department)$, $it.department$$endif$},$if(it.address)$addressline={$it.address$}$endif$$if(it.city)$$if(it.address)$,$endif$city={$it.city$}$endif$$if(it.country)$$if(it.city)$,$elseif(it.address)$,$endif$country={$it.country$},countrysep={,}$endif$$if(it.postal-code)$$if(it.country)$,$elseif(it.city)$,$elseif(it.address)$,$endif$postcode={$it.postal-code$}$endif$,postcodesep={}}
+$endfor$
+
+\cortext[cor1]{Corresponding author}
+$for(by-author)$
+$if(by-author.note.text)$\fntext[fn$by-author.note.number$]{$by-author.note.text$}$endif$
+$endfor$
+        
+$if(abstract)$
+\begin{abstract}
+$abstract$
+\end{abstract}
+$endif$
+
+$if(journal.graphical-abstract)$\begin{graphicalabstract}
+$journal.graphical-abstract$
+\end{graphicalabstract}
+$endif$
+
+$if(journal.highlights)$\begin{highlights}
+$for(journal.highlights)$\item $it$$endfor$
+\end{highlights}
+$endif$
+
+$if(keywords)$
+\begin{keyword}
+    $for(keywords/allbutlast)$$keywords$ \sep $endfor$
+    $for(keywords/last)$$keywords$$endfor$
+\end{keyword}
+$endif$
+
+$-- Provides configuration of document metadata for writing the title block.
+$-- Note that in addition to these templates and partials, Quarto will also make normalized authors and affiliations data available to the template,
+$-- making is easy to write custom title blocks against a standard schema.
+$--
+$-- %%%% TODO %%%%%
+$-- Customize is needed, like below for printing the authors. Otherwise remove this partials to use Quarto default one.
+$-- %%%%%%%%%%%%%%%%
+
+\begin{document}
+\begin{titlepage}
+\clearpage
+\thispagestyle{empty}
+
+\vspace*{2cm}
+\begin{center}
+    {\bfseries\fontsize{28}{22}\selectfont TDK dolgozat}
+    \vspace*{\fill}
+\end{center}
+
+\begin{center}
+    \vspace*{\fill}
+    {\bfseries\fontsize{24}{20}\selectfont \the\year{}}
+\end{center}
+\vspace*{3cm}
+\end{titlepage}
+
+\newpage
+
+\begin{titlepage}
+\clearpage
+\thispagestyle{empty}
+\vspace*{0.1cm}
+\begin{center}
+    
+    {\bfseries\fontsize{16}{22}\selectfont \textsc{Neumann János Egyetem}} \\ {\bfseries\fontsize{16}{22}\selectfont \textsc{MNB Intézet: Fenntartható Pénzügyek Központ }} \\ {\bfseries\fontsize{16}{22}\selectfont \textsc{Nemzetközi gazdaság és gazdálkodás mesterszak}}
+\end{center}
+\vspace*{1cm}
+\begin{center}
+   \includegraphics[height=0.8in]{_extensions/mnb_logo.png}
+
+\end{center}
+\vspace*{1cm}
+\begin{center}
+   \includegraphics[height=0.8in]{_extensions/neumann.png}
+
+\end{center}
+$if(hungarian)$
+\vspace*{1cm}
+\begin{center}
+    
+    {\bfseries\fontsize{18}{22}\selectfont \textsc{$title-hungarian$}}
+\end{center}
+
+$endif$
+
+\vspace*{1cm}
+\begin{center}
+    
+    {\bfseries\fontsize{18}{22}\selectfont \textsc{$title-english$}}
+\end{center}
+
+\vspace*{1cm}
+\begin{center}
+    
+    {\fontsize{16}{22}\selectfont \textsc{$author$}}
+
+\end{center}
+
+\vspace*{3cm}
+\begin{center}
+    
+    {\fontsize{16}{22}\selectfont 
+    $if(hungarian)$
+    Konzulens: 
+    $else$
+    Supervisor:
+    $endif$
+    $supervisor$}
+\end{center}
+
+
+\begin{center}
+    \vspace*{\fill}
+    {\fontsize{14}{20}\selectfont 
+    $if(hungarian)$
+    Kézirat lezárásának dátuma:
+    $endif$
+    \today}
+\end{center}
+\end{titlepage}
+
+\newpage
+
+
+\newpage
+\setcounter{page}{1}
+{
+  \hypersetup{linkcolor=black}
+  \tableofcontents
+}
+
+\newpage
+
+{
+  \hypersetup{linkcolor=black}
+  \listoffigures
+}
+
+{
+  \hypersetup{linkcolor=black}
+  \listoftables
+}
+
+\newpage
+
+$body$
+
+\printbibliography
+\end{document}
+
+    
+\end{frontmatter}

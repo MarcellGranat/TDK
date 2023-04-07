@@ -7,10 +7,7 @@ $-- %%%% TODO %%%%%
 $-- Customize is needed, otherwise remove this partials to use Quarto default one
 $-- %%%%%%%%%%%%%%%%
 
-\documentclass[
-$if(fontsize)$
-  $fontsize$,
-$endif$
+\documentclass[10
 $if(papersize)$
   $papersize$paper,
 $endif$
@@ -26,4 +23,4 @@ $endif$
 $for(classoption)$
   $classoption$$sep$,
 $endfor$
-]{$documentclass$}
+]{article}
