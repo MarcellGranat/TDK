@@ -20,6 +20,6 @@ quarto use template MarcellGranat/TDK
 
 3.  Open a new .qmd file (file \> new file \> Quarto Document)
 
-4.  Fill out the yaml as in the [template.qmd](https://github.com/MarcellGranat/TDK/template.qmd)
+4.  Fill out the yaml as in the [template.qmd](https://github.com/MarcellGranat/TDK/blob/main/template.qmd)
 
 If you write your paper in english (congrats and keep up the good work!), use \`TDKen-pdf\` instead of `TDK-pdf` as format
